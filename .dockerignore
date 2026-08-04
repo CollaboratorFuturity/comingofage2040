@@ -1,0 +1,9 @@
+node_modules
+dist
+.git
+docs
+*.md
+.DS_Store
+bun.lock
+bun.lockb
+docker-compose.yml

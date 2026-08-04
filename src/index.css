@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 195 85% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 95%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 195 100% 60%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 195 85% 50%;
+
+    --radius: 0.75rem;
+    
+    --gradient-primary: linear-gradient(135deg, hsl(195 85% 50%) 0%, hsl(220 70% 40%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(195 100% 60%) 0%, hsl(280 60% 50%) 100%);
+    --glow-primary: 0 0 40px hsl(195 85% 50% / 0.4);
+    --glow-accent: 0 0 30px hsl(195 100% 60% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 210 40% 98%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+  }
+  
+  /* Apply uppercase globally */
+  h1, h2, h3, h4, h5, h6, p, span, div, button, a, label, input, textarea {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    text-transform: uppercase !important;
+  }
+  
+  h1, h3 {
+    font-weight: 700;
+  }
+  
+  /* Override uppercase for ElevenLabs widget with even higher specificity */
+  body elevenlabs-convai,
+  body elevenlabs-convai *,
+  body elevenlabs-convai div,
+  body elevenlabs-convai span,
+  body elevenlabs-convai p,
+  body elevenlabs-convai button,
+  body elevenlabs-convai a {
+    text-transform: none !important;
+    font-size: 0.7rem !important;
+  }
+  
+  /* Override uppercase for tooltip content */
+  .normal-case,
+  .normal-case * {
+    text-transform: none !important;
+  }
+}
+
+/* ElevenLabs Widget Override */
+elevenlabs-convai {
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  position: relative !important;
+}
+
+/* Compress internal widget spacing */
+elevenlabs-convai::part(container),
+elevenlabs-convai::part(content) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Target shadow DOM elements */
+elevenlabs-convai * {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  text-transform: none !important;
+  font-size: 0.75rem !important;
+}
