@@ -1,0 +1,8 @@
+services:
+  comingofage2040:
+    build: .
+    container_name: comingofage2040
+    restart: unless-stopped
+    ports:
+      # Host port for the Cloudflare tunnel to target (http://localhost:3040)
+      - "${PORT:-3040}:80"
